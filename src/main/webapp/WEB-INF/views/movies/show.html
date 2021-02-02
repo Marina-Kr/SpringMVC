@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Кино</title>
+</head>
+<body>
+
+<p th:text="'ID: ' + ${movie.getId()}">ID</p>
+<p th:text="'Название: ' + ${movie.getName()}"></p>
+<img th:src="${movie.getPosterUrl()}">
+<p th:text="'Год: '+ ${movie.getYear()}"></p>
+<p th:text="'Жанры: '+ ${movie.getGenres()}"></p>
+<p th:text="'Страна: '+ ${movie.getCountry()}"></p>
+
+<form th:method="DELETE" th:action="@{/movies/{id}(id=${movie.getId()})}">
+    <input type="submit" value="Delete"/>
+</form>
+</body>
+</html>
